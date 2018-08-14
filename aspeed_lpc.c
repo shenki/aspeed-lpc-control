@@ -78,7 +78,7 @@ int astlpc_init(struct astlpc_ctx *ctx, const char *path)
 	debug("Opening %s\n", path);
 	ctx->fd = open(path, O_RDWR | O_SYNC);
 	if (ctx->fd < 0) {
-		err(1, "%s O_RDWR", path);
+		err(1, "Error opening '%s' O_RDWR", path);
 		return -errno;
 	}
 
