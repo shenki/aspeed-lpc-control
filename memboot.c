@@ -40,9 +40,9 @@ int main(int argc, char **argv)
 {
 	struct astlpc_ctx *ctx;
 	const char *file;
+	unsigned char c;
 	char *endptr;
 	int rc;
-	char c;
 
 	do {
 		c = getopt_long(argc, argv, "f:vVh", options, NULL);
