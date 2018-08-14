@@ -11,6 +11,7 @@
 #include <fcntl.h>
 #include <err.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include <linux/aspeed-lpc-ctrl.h>
 #include <mtd/mtd-abi.h>
@@ -36,14 +37,13 @@ struct astlpc_ctx {
 	const char *path;
 };
 
-#ifdef DEBUG
+/* Set by application to enable verbose output */
+bool verbose;
+
 #define debug(...)		\
 do {				\
-	printf(__VA_ARGS__);	\
+	if (verbose) printf(__VA_ARGS__);	\
 } while (0)
-#else
-#define debug(...) do { } while (0)
-#endif
 
 #define min(a, b) \
         ({ \
@@ -52,6 +52,11 @@ do {				\
                 __builtin_types_compatible_p(typeof(_a), typeof(_b)); \
                 _a < _b ? _a : _b; \
         })
+
+void astlpc_set_verbose(void)
+{
+	verbose = true;
+}
 
 struct astlpc_ctx *astlpc_alloc(void)
 {
