@@ -136,7 +136,7 @@ int astlpc_use_flash(struct astlpc_ctx *ctx, uint32_t flash_size)
 	};
 
 	printf("Pointing HOST LPC bus at the flash\n");
-	printf("Assuming %dMB of flash: HOST LPC 0x%08x\n",
+	printf("%dMB of flash: HOST LPC 0x%08x\n",
 		flash_size >> 20, map.addr);
 
 	if (ioctl(ctx->fd, ASPEED_LPC_CTRL_IOCTL_MAP, &map)
