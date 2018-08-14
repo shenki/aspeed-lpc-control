@@ -40,9 +40,9 @@ int main(int argc, char **argv)
 {
 	struct astlpc_ctx *ctx;
 	unsigned int size;
+	signed char c;
 	char *endptr;
 	int rc;
-	char c;
 
 	do {
 		c = getopt_long(argc, argv, "s:vVh", options, NULL);
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
 	if (rc < 0)
 		return rc;
 
-	rc = astlpc_use_flash(ctx, size);
+	rc = astlpc_use_flash(ctx, size << 20);
 	if (rc < 0)
 		return rc;
 
