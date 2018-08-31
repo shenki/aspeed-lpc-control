@@ -15,7 +15,7 @@
 #include "config.h"
 
 static struct option options[] = {
-	{"size",	required_argument,	0, 's' },
+	{"file",	required_argument,	0, 'f' },
 	{"version",	no_argument,		0, 'V' },
 	{"verbose",	no_argument,		0, 'v' },
 	{"help",	no_argument,		0, 'h' },
@@ -29,7 +29,7 @@ static void show_version(void)
 
 static void show_help(const char *name)
 {
-	printf("Usage: %s [--file|-f FILE] [-v|--version] [-V|--verbose] [-h|--help]\n\n", name);
+	printf("Usage: %s [--file|-f FILE] [-V|--version] [-v|--verbose] [-h|--help]\n\n", name);
 	printf("  -f, --file\tFILE is the PNOR to be loaded into memory\n");
 	printf("  -V, --version\tdisplay version information and exit\n");
 	printf("  -v, --verbose\tbe verbose in output\n");
@@ -40,9 +40,8 @@ int main(int argc, char **argv)
 {
 	struct astlpc_ctx *ctx;
 	const char *file;
-	unsigned char c;
 	char *endptr;
-	int rc;
+	int rc, c;
 
 	do {
 		c = getopt_long(argc, argv, "f:vVh", options, NULL);

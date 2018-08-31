@@ -29,7 +29,7 @@ static void show_version(void)
 
 static void show_help(const char *name)
 {
-	printf("Usage: %s [--size|-s SIZE] [-v|--version] [-V|--verbose] [-h|--help]\n\n", name);
+	printf("Usage: %s [--size|-s SIZE] [-V|--version] [-v|--verbose] [-h|--help]\n\n", name);
 	printf("  -s, --size\tSIZE is the number of MB of LPC window to open\n");
 	printf("  -V, --version\tdisplay version information and exit\n");
 	printf("  -v, --verbose\tbe verbose in output\n");
@@ -40,9 +40,8 @@ int main(int argc, char **argv)
 {
 	struct astlpc_ctx *ctx;
 	unsigned int size;
-	signed char c;
 	char *endptr;
-	int rc;
+	int rc, c;
 
 	do {
 		c = getopt_long(argc, argv, "s:vVh", options, NULL);
