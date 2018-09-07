@@ -1,5 +1,5 @@
 AC_PREREQ([2.69])
-AC_INIT([aspeed-lpc-ctrl], 0.1)
+AC_INIT([aspeed-lpc-ctrl], 0.2)
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([-Wall foreign dist-xz])
 AM_SILENT_RULES([yes])
