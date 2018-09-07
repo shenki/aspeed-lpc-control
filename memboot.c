@@ -42,10 +42,7 @@ int main(int argc, char **argv)
 	const char *file;
 	int rc, c;
 
-	do {
-		c = getopt_long(argc, argv, "f:vVh", options, NULL);
-		if (c == -1)
-			break;
+	while (-1 != (c = getopt_long(argc, argv, "f:vVh", options, NULL))) {
 		switch (c) {
 		case 'f':
 			file = optarg;
@@ -63,7 +60,7 @@ int main(int argc, char **argv)
 				return 0;
 			exit(EXIT_FAILURE);
 		};
-	} while (c != EOF);
+	}
 
 	if (!file) {
 		show_help(basename(argv[0]));
