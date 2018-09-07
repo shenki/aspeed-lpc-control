@@ -49,7 +49,6 @@ do {				\
         ({ \
                 typeof(a) _a = (a); \
                 typeof(b) _b = (b); \
-                __builtin_types_compatible_p(typeof(_a), typeof(_b)); \
                 _a < _b ? _a : _b; \
         })
 

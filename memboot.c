@@ -40,7 +40,6 @@ int main(int argc, char **argv)
 {
 	struct astlpc_ctx *ctx;
 	const char *file;
-	char *endptr;
 	int rc, c;
 
 	do {
